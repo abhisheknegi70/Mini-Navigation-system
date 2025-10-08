@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Navigation System</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="card">
+        <header>
+            <div class="profile-social">
+                <h2 style="color: #24ff7a; margin: 0;">Campus Navigation</h2>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="#">Map</a></li>
+                    <li><a href="#">About</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <div class="info">
+                <h1>Find Your Path</h1>
+                <p class="desc">
+                    Select your starting point and destination to find the shortest path across campus.
+                </p>
+                
+                <div class="path-controls">
+                    <select id="start-building" class="building-select">
+                        <option value="">Select Start</option>
+                        {% for building in buildings %}
+                        <option value="{{ building.id }}">{{ building.name }}</option>
+                        {% endfor %}
+                    </select>
+                    
+                    <select id="end-building" class="building-select">
+                        <option value="">Select Destination</option>
+                        {% for building in buildings %}
+                        <option value="{{ building.id }}">{{ building.name }}</option>
+                        {% endfor %}
+                    </select>
+                    
+                    <button id="find-path-btn" class="get-started">Find Path</button>
+                </div>
+                
+                <div id="result" class="result hidden">
+                    <p><strong>Distance:</strong> <span id="distance"></span> meters</p>
+                    <p><strong>Route:</strong> <span id="path"></span></p>
+                </div>
+            </div>
+            
+            <div class="map-container">
+                <canvas id="campus-map" width="700" height="500"></canvas>
+            </div>
+        </main>
+    </div>
+    <script src="/static/script.js"></script>
+</body>
+</html>
