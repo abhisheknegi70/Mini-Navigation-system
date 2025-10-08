@@ -1,5 +1,5 @@
 
-// Fetch buildings and connections from Flask API
+
 let buildings = [];
 let connections = [];
 let currentPath = null;
@@ -109,3 +109,4 @@ document.getElementById('find-path-btn').addEventListener('click', async () => {
 
 // Initialize on page load
 init();
+
